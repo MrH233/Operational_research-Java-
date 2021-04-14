@@ -93,8 +93,8 @@ class Simplex {
                 else if (j < a[0] && j > -1)
                     System.out.printf("%-8.2f \t", element[j][i]);
                 else if (j==a[0] && i==0)
-                    System.out.printf("X-test\t\t");
-                else if (j==a[0] && i>0)
+                    System.out.print("X-test\t\t");
+                else if (j==a[0])
                     System.out.printf("%-8.2f \t", x_test[i]);
             }
             if(j==-1)
