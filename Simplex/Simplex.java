@@ -74,6 +74,8 @@ class Simplex {
                 check[1] = xB[i];
             }
         }
+        if(check[1] == 0)
+            return false;
         // refresh xB, unbase
         for(int i=0; i<xB.length || i<unbase.length;i++){
             if(i<xB.length) {
@@ -81,7 +83,8 @@ class Simplex {
                 cB[i] = cJ[xB[i] - 1];
             }
             if(i<unbase.length) {
-                unbase[i] = unbase[i] == check[0] ? check[1] : unbase[i];
+                if(unbase[i] == check[0])
+                    unbase[i] = check[1];
             }
         }return true;
     }
