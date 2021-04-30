@@ -23,6 +23,7 @@ class Simplex {
             unbase[i] = i+1;
         System.arraycopy(this.cJ, xB[0]-1, cB, 0, xB.length);
     }
+    // Gaussian elimination
     public void GaussTran(){
         for(int i=0; i<a[0]; i++){
             for(int j=0; j<a[1]; j++)
@@ -111,6 +112,7 @@ class Simplex {
     public double[] calculate(){
         // The best deal stored in result, and the last one of result is max z.
         double[] result = new double[element[0].length+1];
+        // Main iter
         while(true){
             GaussTran();
             if(!checkAndIter())
