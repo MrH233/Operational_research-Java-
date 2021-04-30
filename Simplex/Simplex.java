@@ -17,11 +17,10 @@ class Simplex {
         this.element =element;
         a = new int[] {raw, column};
         this.cJ = cJ;
-        for(int i=0,j=column - raw; j<column; i++, j++){
+        for(int i=0,j=column - raw; j<column; i++, j++)
             xB[i] = j;
-            if(i<column-raw-1)
-                unbase[i] = i+1;
-        }
+        for(int i=0; i<column-raw-1; i++)
+            unbase[i] = i+1;
         System.arraycopy(this.cJ, xB[0]-1, cB, 0, xB.length);
     }
     public void GaussTran(){
@@ -76,11 +75,13 @@ class Simplex {
         }
         // refresh xB, unbase
         for(int i=0; i<xB.length || i<unbase.length;i++){
-            if(i<xB.length)
-                xB[i] = xB[i]==check[1] ? check[0]:xB[i];
-            cB[i] = cJ[xB[i]-1];
-            if(i<unbase.length)
-                unbase[i] = unbase[i]==check[0] ? check[1]:unbase[i];
+            if(i<xB.length) {
+                xB[i] = xB[i] == check[1] ? check[0] : xB[i];
+                cB[i] = cJ[xB[i] - 1];
+            }
+            if(i<unbase.length) {
+                unbase[i] = unbase[i] == check[0] ? check[1] : unbase[i];
+            }
         }return true;
     }
     public void show(int sign){
